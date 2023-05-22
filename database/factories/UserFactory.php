@@ -35,4 +35,14 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    /**
+     * Indicate that the model's email address should be unverified.
+     */
+    public function admin(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'admin_since' => now()->subDays(mt_rand(0, 360)),
+        ]);
+    }
 }
