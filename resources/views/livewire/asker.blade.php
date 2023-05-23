@@ -29,11 +29,11 @@
             <div>
                 <div class="flex items-center mb-4">
                     <label class="mr-5">Title:</label>
-                    <input type="text" wire:model="title" class="border rounded p-2 w-full">
+                    <input name="title" type="text" wire:model="title" class="border rounded p-2 w-full">
                 </div>
-                <div class="flex items-center w-full">
+                @error('title') <span class="text-red-300">{{ $message }}</span> @enderror
                     <label class="mr-2">Query:</label>
-                    <textarea wire:model="query" class="border rounded p-2 w-full"></textarea>
+                    <textarea name="query" wire:model="query" class="border rounded p-2 w-full"></textarea>
                 </div>
                 <div class="flex justify-center items-center">
                     <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-4 py-2"

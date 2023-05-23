@@ -16,6 +16,8 @@ class Asker extends Component
 
     public function addToDashboard()
     {
+        $this->validate();
+
         $item['title'] = $this->title;
 
         $item['result'] = DB::ask($this->query);
@@ -29,5 +31,13 @@ class Asker extends Component
     public function render()
     {
         return view('livewire.asker');
+    }
+
+    protected function rules()
+    {
+        return [
+            'title' => ['required'],
+            'query' => ['required'],
+        ];
     }
 }
